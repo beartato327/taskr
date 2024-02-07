@@ -9,15 +9,17 @@ abstract class AuthenticateFirestoreAuth {
 class Authenticate extends AuthenticateFirestoreAuth {
   @override
   Future<void> login(String email, String password) async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+    var user = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email.trim(), password: password.trim());
+    print(user);
   }
 
   @override
   Future<void> register(
       String email, String password, String confirmPassword) async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    var user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email.trim(), password: password.trim());
+    print(user);
     FirestoreData().createUser(email);
   }
 }

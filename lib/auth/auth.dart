@@ -22,7 +22,7 @@ class _AuthState extends State<Auth> {
     if (loginOrSignup) {
       return Login(changeScreen);
     } else {
-      return SignUp(changeScreen);
+      return Signup(changeScreen);
     }
   }
 }
